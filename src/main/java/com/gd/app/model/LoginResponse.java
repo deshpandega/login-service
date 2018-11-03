@@ -2,15 +2,22 @@ package com.gd.app.model;
 
 import com.gd.app.util.ResultCode;
 
+import javax.ws.rs.Produces;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author Gaurang Deshpande
  */
+@XmlRootElement
+@Produces("application/json")
 public class LoginResponse {
 
-    private final String username;
-    private final String name;
-    private final String profileUrl;
-    private final ResultCode status;
+    private String username;
+    private String name;
+    private String profileUrl;
+    private ResultCode status;
+
+    public LoginResponse(){}
 
     public LoginResponse(String username, String name, String profileUrl, ResultCode status) {
         this.username = username;
@@ -19,34 +26,52 @@ public class LoginResponse {
         this.status = status;
     }
 
-    public static class Builder {
-        private String username;
-        private String name;
-        private String profileUrl;
-        private ResultCode status;
+    public String getUsername() {
+        return username;
+    }
 
-        public Builder withUsername(final String username){
-            this.username=username;
-            return this;
-        }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-        public Builder withName(final String name){
-            this.name = name;
-            return this;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public Builder withProfileUrl(final String profileUrl){
-            this.profileUrl = profileUrl;
-            return this;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public Builder withResultCode(final ResultCode status){
-            this.status = status;
-            return this;
-        }
+    public String getProfileUrl() {
+        return profileUrl;
+    }
 
-        public LoginResponse build(){
-            return new LoginResponse(this.username, this.name, this.profileUrl, this.status);
-        }
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+    }
+
+    public ResultCode getStatus() {
+        return status;
+    }
+
+    public void setStatus(ResultCode status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LoginResponse {\n");
+        sb.append("    ").append(this.indentValue(" ")).append("\n");
+        sb.append("    code: ").append(this.indentValue(this.getStatus())).append("\n");
+        sb.append("    username: ").append(this.indentValue(this.getUsername())).append("\n");
+        sb.append("    name: ").append(this.indentValue(this.getName())).append("\n");
+        sb.append("    profile url: ").append(this.indentValue(this.getProfileUrl())).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    private String indentValue(Object obj){
+        return obj == null ? "null" : obj.toString().replace("\n", "\n    ");
     }
 }

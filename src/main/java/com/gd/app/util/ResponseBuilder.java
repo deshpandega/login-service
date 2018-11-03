@@ -8,11 +8,6 @@ import com.gd.app.model.LoginResponse;
 public class ResponseBuilder {
 
     public static LoginResponse buildLoginResponse(){
-        return new LoginResponse.Builder()
-                .withName("Gaurang Deshpande")
-                .withUsername("gaurangdeshpande89@gmail.com")
-                .withProfileUrl("")
-                .withResultCode(ResultCode.SUCCESS)
-                .build();
+        return new LoginResponse("gaurangdeshpande89@gmail.com","Gaurang Deshpande","",ResultCode.SUCCESS);
     }
 }

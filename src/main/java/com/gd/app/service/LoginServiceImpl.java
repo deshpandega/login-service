@@ -16,6 +16,10 @@ public class LoginServiceImpl implements LoginService {
 
     public Response loginWithGoogleApi(final LoginRequest loginRequest) {
         LOGGER.info("Starting login call to Google API with request: [{}]", loginRequest);
+
+        String username = loginRequest.getUsername();
+        String password = loginRequest.getPassword();
+        LOGGER.info("Creds opbatiner [{}] and [{}]", username, password);
         return Response.ok().entity(ResponseBuilder.buildLoginResponse()).build();
     }
 
