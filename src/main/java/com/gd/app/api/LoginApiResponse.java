@@ -3,6 +3,7 @@ package com.gd.app.api;
 import com.google.common.base.Preconditions;
 import com.google.inject.Inject;
 import com.gd.app.model.LoginRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.gd.app.service.LoginService;
@@ -25,6 +26,8 @@ public class LoginApiResponse implements ApiResponse{
 
     public Response loginWithGoogle(LoginRequest loginRequest, HttpServletRequest request) {
         Preconditions.checkArgument(loginRequest != null, "Missing request body");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getUsername()), "Missing username");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getPassword()), "Missing password");
         LOGGER.info("Starting login with google");
         return loginService.loginWithGoogleApi(loginRequest);
     }
@@ -32,6 +35,8 @@ public class LoginApiResponse implements ApiResponse{
 
     public Response loginWithFacebook(LoginRequest loginRequest, HttpServletRequest request) {
         Preconditions.checkArgument(loginRequest != null, "Missing request body");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getUsername()), "Missing username");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getPassword()), "Missing password");
         LOGGER.info("Starting login with google");
         return loginService.loginWithFacebookApi(loginRequest);
     }
