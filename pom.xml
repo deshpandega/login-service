@@ -93,6 +93,19 @@
             <version>3.7</version>
         </dependency>
 
+        <!-- DataStax Cassandra -->
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-core</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-mapping</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
         <!-- Use JUnit for unit and integration tests -->
         <dependency>
             <groupId>junit</groupId>

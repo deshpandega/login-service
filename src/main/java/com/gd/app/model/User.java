@@ -1,19 +1,28 @@
 package com.gd.app.model;
 
-import javax.ws.rs.Produces;
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * @author Gaurang Deshpande
  */
-@XmlRootElement
-@Produces("application/json")
-public class LoginRequest {
-
+public class User {
+    private String id;
     private String email;
     private String name;
     private String imageUrl;
-    private String id;
+
+    public User(final String id, final String email, final String name, final String imageUrl) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
@@ -37,13 +46,5 @@ public class LoginRequest {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

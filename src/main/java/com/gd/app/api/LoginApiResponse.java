@@ -26,8 +26,10 @@ public class LoginApiResponse implements ApiResponse{
 
     public Response loginWithGoogle(LoginRequest loginRequest, HttpServletRequest request) {
         Preconditions.checkArgument(loginRequest != null, "Missing request body");
-        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getUsername()), "Missing username");
-        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getPassword()), "Missing password");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getId()), "Missing id");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getEmail()), "Missing email");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getName()), "Missing name");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getImageUrl()), "Missing image url");
         LOGGER.info("Starting login with google");
         return loginService.loginWithGoogleApi(loginRequest);
     }
@@ -35,8 +37,10 @@ public class LoginApiResponse implements ApiResponse{
 
     public Response loginWithFacebook(LoginRequest loginRequest, HttpServletRequest request) {
         Preconditions.checkArgument(loginRequest != null, "Missing request body");
-        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getUsername()), "Missing username");
-        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getPassword()), "Missing password");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getId()), "Missing id");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getEmail()), "Missing email");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getName()), "Missing name");
+        Preconditions.checkArgument(StringUtils.isNotBlank(loginRequest.getImageUrl()), "Missing image url");
         LOGGER.info("Starting login with google");
         return loginService.loginWithFacebookApi(loginRequest);
     }

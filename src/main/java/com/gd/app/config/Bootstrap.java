@@ -12,6 +12,7 @@ public class Bootstrap extends GuiceServletContextListener {
     void configureBinder(Binder binder) {
         binder.install(new RestModule());
         binder.install(new LoginModule());
+        binder.install(new CassandraModule());
     }
 
     protected Injector getInjector() {
