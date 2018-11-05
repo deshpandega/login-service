@@ -1,5 +1,5 @@
 -- -----------------------------------------------------
--- APP keyspace
+-- App keyspace
 -- -----------------------------------------------------
 CREATE KEYSPACE IF NOT EXISTS app
   WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
@@ -22,3 +22,13 @@ CREATE TABLE IF NOT EXISTS login (
   imageUrl text,
   PRIMARY KEY (id)
 );
+
+-- -----------------------------------------------------
+-- Check if table is created
+-- -----------------------------------------------------
+describe tables;
+
+-- -----------------------------------------------------
+-- Fetch Details from login table
+-- -----------------------------------------------------
+SELECT * FROM app.login;

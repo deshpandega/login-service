@@ -166,9 +166,6 @@
                         <configuration>
                             <port>${tomcat.port}</port>
                             <path>/${context.root}</path>
-                            <systemProperties>
-                                <archaius.deployment.environment>${environment}</archaius.deployment.environment>
-                            </systemProperties>
                         </configuration>
                     </plugin>
                 </plugins>
